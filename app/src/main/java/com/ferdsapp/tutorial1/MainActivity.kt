@@ -21,15 +21,19 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -172,5 +176,34 @@ fun SlotBasedLayout() {
 private fun SlotBasedLayoutPreview() {
     Tutorial1Theme {
         SlotBasedLayout()
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ScaffoldSample() {
+    Scaffold(
+        topBar = { TopAppBar(title = { Text( text = "Learning Scaffold" )}) },
+        floatingActionButton = {
+            FloatingActionButton(onClick = { /*TODO*/ }) {
+                Icon(imageVector = Icons.Default.Add, contentDescription = null)
+            }
+        }
+    ) {
+        Box(modifier = Modifier
+            .padding(it)
+            .fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ){
+            Text(text = "Hello Compose")
+        }
+    }
+}
+
+@Preview (showBackground = true)
+@Composable
+private fun ScaffoldSamplePreview() {
+    Tutorial1Theme {
+        ScaffoldSample()
     }
 }
