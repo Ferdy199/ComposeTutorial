@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import com.gunder.market.component.MainBannerVertical
 import com.gunder.market.component.MainBottomCategory
 import com.gunder.market.component.MainCardCategory
 import com.gunder.market.component.MainImageCategory
@@ -23,6 +24,7 @@ import com.gunder.market.component.MainTopCategory
 import com.gunder.market.component.TopMenu
 import com.gunder.market.model.dummyListBanner
 import com.gunder.market.model.dummyListBottomCategory
+import com.gunder.market.model.dummyListCardForYou
 import com.gunder.market.model.dummyListTopCategory
 import com.gunder.market.model.dummyListTopMenu
 import com.gunder.market.ui.theme.MarketTheme
@@ -125,6 +127,23 @@ private fun MainImageCategoryCardPreview() {
     }
 }
 
+@Composable
+fun MainListBannerVertical(modifier: Modifier = Modifier) {
+    LazyRow {
+        items(dummyListCardForYou){
+            MainBannerVertical(listBannerVertical = it)
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun MainBannerVerticalPreview() {
+    MarketTheme {
+        MainListBannerVertical()
+    }
+}
+
 // all preview place here
 @Composable
 fun MarketApp(modifier: Modifier = Modifier) {
@@ -139,6 +158,7 @@ fun MarketApp(modifier: Modifier = Modifier) {
         MainListBanner()
         MainCategoryBottom()
         MainImageCategoryCard()
+        MainListBannerVertical()
     }
 }
 
