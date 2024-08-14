@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.ArrowDropDown
 import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.outlined.KeyboardArrowDown
 import androidx.compose.material.icons.outlined.LocationOn
@@ -29,7 +28,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gunder.market.ui.theme.MarketTheme
-import kotlin.math.min
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -77,7 +75,7 @@ fun MainTopBar(modifier: Modifier = Modifier) {
         }
         Row(
             modifier = Modifier
-            .padding(top = 8.dp),
+                .padding(top = 8.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -97,7 +95,7 @@ fun MainTopBar(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview (showBackground = true)
+@Preview(showBackground = true)
 @Composable
 private fun MainTopBarPreview() {
     MarketTheme {
